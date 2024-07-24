@@ -1,0 +1,60 @@
+section {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  .parent-container {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .child-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px; /* Adjust the gap between items as needed */
+      width: 50%;
+      span {
+        width: 100%;
+      }
+    }
+  }
+}
+
+
+[title-container] {
+  display: flex;
+  padding-left: 10px;
+
+  h2 {
+    margin-bottom: 3px;
+  }
+}
+
+[input-container] {
+  position: relative;
+  display: inline-block;
+
+  input {
+    background-color: #e3ebef;
+    border-color: unset;
+    border-radius: 20px;
+    height: 50px;
+    border-style: unset;
+    width: 100%;
+    max-width: fit-content;
+    padding-left: 45px;
+    font-weight: bold;
+  }
+}
+
+[input-container] fa-icon {
+  position: absolute;
+  left: 20px;
+  /* Adjust this value based on desired position */
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  /* Ensures the icon does not interfere with input */
+  color: #02a8e1;
+}

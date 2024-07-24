@@ -1,0 +1,13 @@
+<section *ngFor="let title of titles;let i = index">
+  <div>
+    <div>
+      <span *ngIf="title" title-container>
+        <h2>{{title}}</h2>
+      </span>
+      <span input-container>
+        <input [type]="types[i]" [placeholder]="placeholders[i] || ''" [ngStyle]="{'height': XL && XL[i] ? '120px' : '60px'}">
+        <fa-icon *ngIf="icons && icons[i]" [icon]="icons[i]"></fa-icon>
+      </span>
+    </div>
+  </div>
+</section>

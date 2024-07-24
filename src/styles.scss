@@ -1,1 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
+h1 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+h2 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 16px;
+}
+
+p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 18px;
+}
+
+input {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 18px;
+  color: black;
+}
+
+input::placeholder {
+  color: #b4b9bc; /* Change this to the desired color */
+  opacity: 1; /* Set opacity to 1 if you want the color to be fully opaque */
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+input:focus {
+  outline: none;
+}

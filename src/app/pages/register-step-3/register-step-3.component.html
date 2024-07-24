@@ -1,0 +1,7 @@
+<app-header></app-header>
+<app-input-form [titles]="titulos" [types]="tipos" [XL]="[true, false]"></app-input-form>
+<app-check-form [title_c]="'Have you seen another doctor for this condition?'" [subtitles]="['Yes', 'No']"></app-check-form>
+<app-input-form [titles]="titulos2" [types]="tipos"></app-input-form>
+<app-check-form [title_c]="'Have you had prior imaging for this condition? (X-ray, MRI, etc)'" [subtitles]="['Yes', 'No']"></app-check-form>
+<app-input-form [titles]="['If yes, Where?']" [types]="['text']"></app-input-form>
+<app-next-button [router]="'/register-step-4'"></app-next-button>

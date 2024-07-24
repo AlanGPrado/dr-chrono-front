@@ -1,0 +1,57 @@
+section {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  div {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    span {
+      width: 100%;
+    }
+  }
+}
+
+
+[title-container] {
+  display: flex;
+  padding-left: 10px;
+
+  h2 {
+    margin-bottom: 3px;
+  }
+}
+
+[input-container] {
+  position: relative;
+  display: inline-block;
+
+  input {
+    background-color: #e3ebef;
+    border-color: unset;
+    border-radius: 20px;
+    height: 60px;
+    border-style: unset;
+    width: -webkit-fill-available;
+    padding-left: 45px;
+    font-weight: bold;
+  }
+
+  .XLClass {
+    height: 120px;
+  }
+}
+
+[input-container] fa-icon {
+  position: absolute;
+  left: 20px;
+  /* Adjust this value based on desired position */
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  /* Ensures the icon does not interfere with input */
+  color: #02a8e1;
+}

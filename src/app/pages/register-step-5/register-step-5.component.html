@@ -1,0 +1,10 @@
+<app-header></app-header>
+<app-check-form [title_c]="titleCheckForm" [align_t]="true" [align_c]="2" [subtitles]="subtitlesCheckForm"></app-check-form>
+<app-input-form [titles]="['']"></app-input-form>
+<app-check-form [title_c]="'Do you use tobacco?'" [subtitles]="['Yes', 'No']"></app-check-form>
+<app-input-form [titles]="['Frequency?']"></app-input-form>
+<br>
+<br>
+<app-check-form [title_c]="'Do you use alcohol?'" [subtitles]="['Yes', 'No']"></app-check-form>
+<app-input-form [titles]="['Frequency?']"></app-input-form>
+<app-next-button [router]="'/register-step-6'"></app-next-button>

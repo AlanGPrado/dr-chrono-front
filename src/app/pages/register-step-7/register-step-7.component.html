@@ -1,0 +1,21 @@
+<app-header></app-header>
+<app-check-form [title_c]="'General'" [subtitles]="subtitlesCheckForm" [align_t]="true" [align_c]="2"></app-check-form>
+<br><br>
+<app-check-form [title_c]="'Neurological'" [subtitles]="subtitlesCheckForm2" [align_t]="true" [align_c]="2"></app-check-form>
+<br><br>
+<app-check-form [title_c]="'Cardiovascular/Pulmonary'" [subtitles]="subtitlesCheckForm3" [align_t]="true" [align_c]="2"></app-check-form>
+<br><br>
+<app-check-form [title_c]="'Gastrointestinal'" [subtitles]="subtitlesCheckForm4" [align_t]="true" [align_c]="2"></app-check-form>
+<br><br>
+<app-check-form [title_c]="'Genito-urinary'" [subtitles]="subtitlesCheckForm5" [align_t]="true" [align_c]="2"></app-check-form>
+<br><br>
+<app-check-form [title_c]="'EENT'" [subtitles]="subtitlesCheckForm6" [align_t]="true" [align_c]="2"></app-check-form>
+<br><br>
+<app-check-form [title_c]="'Women'" [subtitles]="subtitlesCheckForm7" [align_t]="true" [align_c]="2"></app-check-form>
+<app-input-form [titles]="['']"></app-input-form>
+<app-check-form [title_c]="'Are you currently pregnant?'" [subtitles]="['Yes', 'No']" [align_c]="3"></app-check-form>
+<app-input-form [titles]="['When was your last menstrual period?']"></app-input-form>
+<br><br>
+<app-check-form [title_c]="'Men'" [subtitles]="subtitlesCheckForm8" [align_t]="true" [align_c]="1"></app-check-form>
+<app-input-form [titles]="['']"></app-input-form>
+<app-next-button [router]="'/register-step-1'"></app-next-button>

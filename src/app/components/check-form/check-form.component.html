@@ -1,0 +1,16 @@
+<section>
+  <div>
+    <div>
+      <span title-container-c>
+        <h2 [ngStyle]="{'text-align': align_t ? 'center' : 'left', 'margin-bottom': align_t ? '30px' : 'auto'}">{{title_c}}</h2>
+      </span>
+      <span input-container-c
+      [ngStyle]="{'grid-template-columns': align_c === 1 ? 'repeat(1, 1fr)' : align_c === 2 ? '50% 50%' : align_c === 3 ? 'repeat(3, 1fr)' : 'initial'}">
+        <span *ngFor="let subtitle of subtitles;let i = index" class="sus" [class.only-child-row]="isOnlyChildInRow(i)">
+          <button type="check"></button>
+          <p>{{subtitle}}</p>
+        </span>
+      </span>
+    </div>
+  </div>
+</section>

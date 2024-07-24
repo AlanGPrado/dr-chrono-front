@@ -1,0 +1,15 @@
+<section>
+  <div class="parent-container">
+    <div class="child-container">
+      <div *ngFor="let title of titles; let i = index">
+        <span title-container>
+          <h2>{{title}}</h2>
+        </span>
+        <span input-container>
+          <input type="text" [placeholder]="placeholders[i] || ''">
+          <fa-icon *ngIf="icons" [icon]="icons"></fa-icon>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
