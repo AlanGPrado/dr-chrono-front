@@ -1,10 +1,24 @@
 <app-header></app-header>
-<app-check-form [title_c]="titleCheckForm" [align_t]="true" [align_c]="2" [subtitles]="subtitlesCheckForm"></app-check-form>
-<app-input-form [titles]="['']"></app-input-form>
-<app-check-form [title_c]="'Do you use tobacco?'" [subtitles]="['Yes', 'No']"></app-check-form>
-<app-input-form [titles]="['Frequency?']"></app-input-form>
-<br>
-<br>
-<app-check-form [title_c]="'Do you use alcohol?'" [subtitles]="['Yes', 'No']"></app-check-form>
-<app-input-form [titles]="['Frequency?']"></app-input-form>
-<app-next-button [router]="'/register-step-6'"></app-next-button>
+
+<app-check-form [title_c]="titleCheckForm" [subtitles]="subtitlesCheckForm" [align_t]="true" [align_c]="2"
+  [form]="patientForm5" (formChange)="onFormChange($event)" [values]="patientForm5" [position]="0" [multi_c]="true">
+</app-check-form>
+
+<app-input-form [titles]="['']" [form]="patientForm5" (formChange)="onFormChange($event)" [position]="1">
+</app-input-form>
+
+<app-check-form [title_c]="'Do you use tobacco?'" [subtitles]="['Yes', 'No']" [form]="patientForm5"
+  (formChange)="onFormChange($event)" [values]="patientForm5" [position]="2"></app-check-form>
+
+<app-input-form [titles]="['Frequency?']" [form]="patientForm5" (formChange)="onFormChange($event)" [position]="3">
+</app-input-form>
+
+<br><br>
+
+<app-check-form [title_c]="'Do you use alcohol?'" [subtitles]="['Yes', 'No']" [form]="patientForm5"
+  (formChange)="onFormChange($event)" [values]="patientForm5" [position]="4"></app-check-form>
+
+<app-input-form [titles]="['Frequency?']" [form]="patientForm5" (formChange)="onFormChange($event)" [position]="5">
+</app-input-form>
+
+<app-next-button [router]="'/register-step-6'" [disable]="patientForm5.invalid"></app-next-button>

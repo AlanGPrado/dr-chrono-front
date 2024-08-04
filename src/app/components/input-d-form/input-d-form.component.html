@@ -1,14 +1,16 @@
 <section>
-  <div class="parent-container">
+  <div parent-container-d>
     <div class="child-container">
       <div *ngFor="let title of titles; let i = index">
         <span title-container>
           <h2>{{title}}</h2>
         </span>
-        <span input-container>
-          <input type="text" [placeholder]="placeholders[i] || ''">
+        <form [formGroup]="form" input-container>
+          <input type="text" [placeholder]="placeholders[i] || ''"
+          [formControlName]="formControlNames[i + position]"
+          [ngStyle]="{'padding-left': icons ? '45px' : '20px'}">
           <fa-icon *ngIf="icons" [icon]="icons"></fa-icon>
-        </span>
+        </form>
       </div>
     </div>
   </div>

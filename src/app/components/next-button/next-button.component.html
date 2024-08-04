@@ -1,5 +1,6 @@
 <section>
-  <div>
-    <button [routerLink]="router">Next</button>
+  <div parent-container-b>
+    <button [routerLink]="router" [disabled]="disable" [ngStyle]="{'background-color': !disable ? '#03527b' : '#647d8a',
+     'cursor': !disable ? 'pointer' : 'not-allowed'}">Next</button>
   </div>
 </section>

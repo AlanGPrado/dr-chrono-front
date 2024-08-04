@@ -28,6 +28,8 @@ section {
 [input-container-c] {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+
   span {
     display: flex;
     gap: 10px;
@@ -35,20 +37,48 @@ section {
     max-height: 60px;
     align-items: center;
   }
-  button {
-    background-color: #e3ebef;
-    border-color: unset;
-    border-radius: 20px;
-    height: 60px;
-    width: 60px;
-    border-style: unset;
+
+  input {
+    height: 50px;
+    width: 50px;
     padding-left: 45px;
-    font-weight: bold;
+    position: relative;
+    appearance: none;
+    cursor: pointer;
+  }
+
+  input[type=checkbox]:before {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 0;
+    left: 0;
+    padding: 1px;
+    background-color: #e3ebef;
+    border-radius: 20px;
+  }
+
+  input[type=checkbox]:checked:after {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 20px;
+    border: solid black;
+    border-width: 0 4px 4px 0;
+    transform: rotate(45deg);
+    position: absolute;
+    top: 12px;
+    left: 20px;
   }
 }
 
-[input-container-c] > span.only-child-row {
+[input-container-c]>span.only-child-row {
   grid-column: span 2;
+}
+
+.checked {
+  background-color: red;
 }
 
 

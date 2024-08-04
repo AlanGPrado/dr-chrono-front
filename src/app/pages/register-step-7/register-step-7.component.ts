@@ -3,6 +3,7 @@ import { HeaderComponent } from 'src/app/components/header/header.component';
 import { CheckFormComponent } from 'src/app/components/check-form/check-form.component';
 import { NextButtonComponent } from 'src/app/components/next-button/next-button.component';
 import { InputFormComponent } from 'src/app/components/input-form/input-form.component';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register-step-7',
@@ -11,6 +12,7 @@ import { InputFormComponent } from 'src/app/components/input-form/input-form.com
   styleUrls: ['./register-step-7.component.scss'],
   imports: [HeaderComponent, CheckFormComponent, NextButtonComponent, InputFormComponent]
 })
+
 
 export class RegisterStep7Component {
   subtitlesCheckForm = ['Difficulty Sleeping', 'Fatigue', 'Fever/Chills', 'Headaches', 'Recent unexplained change in appetite/weight'];
@@ -25,5 +27,38 @@ export class RegisterStep7Component {
     'Hoarseness', 'Difficult/painful swallowing'];
   subtitlesCheckForm7 = ['Menstrual irregularity', 'Breast pain/mass', 'Chronic/past disease (cancer, endometriosis, etc.)'];
   subtitlesCheckForm8 = ['Erectile dysfunction', 'Chronic/past disease (cancer/BPH, etc.)'];
+  patientForm7: FormGroup;
 
+  constructor(private fb: FormBuilder) {
+    this.patientForm7 = this.fb.group({
+      general_conditions: ['', Validators.required],
+      neurological_conditions: ['', Validators.required],
+      cardiovascular_pulmonary_conditions: ['', Validators.required],
+      gastrointestinal_conditions: ['', Validators.required],
+      genito_urinary_conditions: ['', Validators.required],
+      eent_conditions: ['', Validators.required],
+      women_conditions: ['', Validators.required],
+      other_women_conditions: ['', Validators.required],
+      pregnant_condition: ['', Validators.required],
+      last_menstrual_period: ['', Validators.required],
+      men_conditions: ['', Validators.required],
+      other_men_conditions: ['', Validators.required],
+    });
+
+    const storedForms = JSON.parse(localStorage.getItem('patientForms') || '[]');
+    if (storedForms.length > 6  && storedForms[6]) {
+      this.patientForm7.setValue(storedForms[6]);
+    }
+  }
+
+  ngOnInit(): void {
+    this.patientForm7.valueChanges.subscribe(values => {
+      const existingForms = JSON.parse(localStorage.getItem('patientForms') || '[]');
+      existingForms[6] = values;
+      localStorage.setItem('patientForms', JSON.stringify(existingForms));
+    });
+  }
+  onFormChange(form: FormGroup): void {
+    console.log('Form data received from child:', form.value);
+  }
 }

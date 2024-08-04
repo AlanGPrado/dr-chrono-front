@@ -11,12 +11,5 @@ import { RouterModule } from '@angular/router';
 })
 export class NextButtonComponent {
   @Input() router: string = '';
-
-  ngOnInit() {
-    console.log('NextButtonComponent initialized with router:', this.router);
-  }
-
-  ngOnDestroy() {
-    console.log('NextButtonComponent destroyed');
-  }
+  @Input() disable: boolean = false;
 }

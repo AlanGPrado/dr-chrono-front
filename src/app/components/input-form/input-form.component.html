@@ -1,13 +1,21 @@
 <section *ngFor="let title of titles;let i = index">
-  <div>
+  <div parent-container>
     <div>
       <span *ngIf="title" title-container>
         <h2>{{title}}</h2>
       </span>
-      <span input-container>
-        <input [type]="types[i]" [placeholder]="placeholders[i] || ''" [ngStyle]="{'height': XL && XL[i] ? '120px' : '60px'}">
+      <form [formGroup]="form" input-container>
+        <ng-container *ngIf="!XL[i] else textarea">
+          <input [type]="types[i]" [placeholder]="placeholders[i] || ''"
+            [formControlName]="formControlNames[i + position]"
+            [ngStyle]="{'padding-left': icons ? '45px' : '20px'}">
+        </ng-container>
+        <ng-template #textarea>
+          <textarea [ngStyle]="{'height': XL && XL[i] ? '120px' : '60px', 'padding-left': icons ? '45px' : '20px'}"
+          [formControlName]="formControlNames[i + position]"></textarea>
+        </ng-template>
         <fa-icon *ngIf="icons && icons[i]" [icon]="icons[i]"></fa-icon>
-      </span>
+      </form>
     </div>
   </div>
 </section>

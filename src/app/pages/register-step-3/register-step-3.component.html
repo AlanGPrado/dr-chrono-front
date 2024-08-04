@@ -1,7 +1,20 @@
 <app-header></app-header>
-<app-input-form [titles]="titulos" [types]="tipos" [XL]="[true, false]"></app-input-form>
-<app-check-form [title_c]="'Have you seen another doctor for this condition?'" [subtitles]="['Yes', 'No']"></app-check-form>
-<app-input-form [titles]="titulos2" [types]="tipos"></app-input-form>
-<app-check-form [title_c]="'Have you had prior imaging for this condition? (X-ray, MRI, etc)'" [subtitles]="['Yes', 'No']"></app-check-form>
-<app-input-form [titles]="['If yes, Where?']" [types]="['text']"></app-input-form>
-<app-next-button [router]="'/register-step-4'"></app-next-button>
+
+<app-input-form [titles]="titulos" [types]="tipos" [XL]="[true, false]" [form]="patientForm3"
+  (formChange)="onFormChange($event)"></app-input-form>
+
+<app-check-form [title_c]="'Have you seen another doctor for this condition?'" [subtitles]="['Yes', 'No']"
+  [form]="patientForm3" (formChange)="onFormChange($event)" [values]="patientForm3" [position]="2">
+</app-check-form>
+
+<app-input-form [titles]="titulos2" [types]="tipos" [form]="patientForm3" (formChange)="onFormChange($event)"
+  [position]="3"></app-input-form>
+
+<app-check-form [title_c]="'Have you had prior imaging for this condition? (X-ray, MRI, etc)'"
+  [subtitles]="['Yes', 'No']" [form]="patientForm3" (formChange)="onFormChange($event)" [values]="patientForm3"
+  [position]="7"></app-check-form>
+
+<app-input-form [titles]="['If yes, Where?']" [types]="['text']" [form]="patientForm3"
+  (formChange)="onFormChange($event)" [position]="8"></app-input-form>
+
+<app-next-button [router]="'/register-step-4'" [disable]="patientForm3.invalid"></app-next-button>

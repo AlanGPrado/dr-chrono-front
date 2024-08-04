@@ -1,6 +1,15 @@
 <app-header></app-header>
-<app-input-form [titles]="titulos" [types]="tipos"></app-input-form>
-<app-check-form [title_c]="'Are you a full-time employee?'" [subtitles]="['Yes', 'No']"></app-check-form>
-<app-input-form [titles]="titulos2" [types]="tipos2"></app-input-form>
-<app-input-d-form [titles]="['Member ID #', 'Group #']"></app-input-d-form>
-<app-next-button [router]="'/register-step-3'"></app-next-button>
+
+<app-input-form [titles]="titulos" [types]="tipos" [form]="patientForm2" (formChange)="onFormChange($event)">
+</app-input-form>
+
+<app-check-form [title_c]="'Are you a full-time employee?'" [subtitles]="['Yes', 'No']" [form]="patientForm2"
+  (formChange)="onFormChange($event)" [values]="patientForm2" [position]="2"></app-check-form>
+
+<app-input-form [titles]="titulos2" [types]="tipos2" [form]="patientForm2" (formChange)="onFormChange($event)"
+  [position]="3"></app-input-form>
+
+<app-input-d-form [titles]="['Member ID #', 'Group #']" [form]="patientForm2" (formChange)="onFormChange($event)"
+  [position]="8"></app-input-d-form>
+
+<app-next-button [router]="'/register-step-3'" [disable]="patientForm2.invalid"></app-next-button>

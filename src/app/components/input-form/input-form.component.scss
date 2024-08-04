@@ -28,8 +28,9 @@ section {
 [input-container] {
   position: relative;
   display: inline-block;
+  width: 100%;
 
-  input {
+  input, textarea {
     background-color: #e3ebef;
     border-color: unset;
     border-radius: 20px;
@@ -38,10 +39,15 @@ section {
     width: -webkit-fill-available;
     padding-left: 45px;
     font-weight: bold;
+    resize: none;
   }
 
   .XLClass {
     height: 120px;
+  }
+
+  input[type="date"] {
+    padding-right: 20px;
   }
 }
 
@@ -54,4 +60,9 @@ section {
   pointer-events: none;
   /* Ensures the icon does not interfere with input */
   color: #02a8e1;
+}
+
+textarea {
+  padding-top: 18px;
+  padding-right: 20px;
 }

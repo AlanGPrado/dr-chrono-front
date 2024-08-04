@@ -19,7 +19,8 @@ p {
   font-size: 18px;
 }
 
-input {
+input,
+textarea {
   font-family: "Roboto", sans-serif;
   font-weight: 300;
   font-style: normal;
@@ -28,13 +29,66 @@ input {
 }
 
 input::placeholder {
-  color: #b4b9bc; /* Change this to the desired color */
-  opacity: 1; /* Set opacity to 1 if you want the color to be fully opaque */
+  color: #b4b9bc;
+  /* Change this to the desired color */
+  opacity: 1;
+  /* Set opacity to 1 if you want the color to be fully opaque */
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 
-input:focus {
+input:focus,
+textarea:focus {
   outline: none;
+}
+
+@media (min-width: 300px) and (max-width: 900px) {
+  section {
+    [parent-container] {
+      width: 95% !important;
+
+      div {
+        width: 95% !important;
+      }
+    }
+
+    [parent-container-d] {
+      width: 95% !important;
+
+      div {
+        width: 95% !important;
+      }
+    }
+
+    [parent-container-c] {
+      width: 95% !important;
+
+      div {
+        width: 95% !important;
+
+        input {
+          width: 40px !important;
+          height: 40px !important;
+        }
+
+        p {
+          font-size: 15px !important;
+        }
+
+        form > span {
+          align-items: unset !important;
+        }
+      }
+    }
+
+    [parent-container-b] {
+      width: 95% !important;
+
+      button {
+        width: 95% !important;
+        font-size: 20px !important;
+      }
+    }
+  }
 }

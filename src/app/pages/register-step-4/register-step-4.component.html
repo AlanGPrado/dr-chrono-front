@@ -1,3 +1,5 @@
 <app-header></app-header>
-<app-input-form [titles]="titulos"  [XL]="[true, true, true]"></app-input-form>
-<app-next-button [router]="'/register-step-5'"></app-next-button>
+<app-input-form [titles]="titulos" [XL]="[true, true, true]" [form]="patientForm4"
+(formChange)="onFormChange($event)"></app-input-form>
+<br><br>
+<app-next-button [router]="'/register-step-5'" [disable]="patientForm4.invalid"></app-next-button>
