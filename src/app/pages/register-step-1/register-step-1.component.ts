@@ -26,7 +26,7 @@ export class RegisterStep1Component {
   subtitulos2 = []
   patientForm: FormGroup;
   storedFormValues: any;
-
+  submitted: any = '';
   constructor(private fb: FormBuilder) {
     this.patientForm = this.fb.group({
       name: ['', Validators.required],
@@ -44,7 +44,7 @@ export class RegisterStep1Component {
     });
 
     const storedForms = JSON.parse(localStorage.getItem('patientForms') || '[]');
-    if (storedForms.length > 0) {
+    if (storedForms.length > 0 && storedForms[0]) {
       this.patientForm.setValue(storedForms[0]);
     }
   }
@@ -59,6 +59,11 @@ export class RegisterStep1Component {
 
   onFormChange(form: FormGroup): void {
     console.log('Form data received from child:', form.value);
+  }
+
+  toggle() {
+    this.submitted = true;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   onSubmit() {

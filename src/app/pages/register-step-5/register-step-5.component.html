@@ -1,24 +1,28 @@
 <app-header></app-header>
 
 <app-check-form [title_c]="titleCheckForm" [subtitles]="subtitlesCheckForm" [align_t]="true" [align_c]="2"
-  [form]="patientForm5" (formChange)="onFormChange($event)" [values]="patientForm5" [position]="0" [multi_c]="true">
+  [form]="patientForm5" (formChange)="onFormChange($event)" [values]="patientForm5" [position]="0" [multi_c]="true"
+  [submitted]="submitted">
 </app-check-form>
 
-<app-input-form [titles]="['']" [form]="patientForm5" (formChange)="onFormChange($event)" [position]="1">
+<app-input-form [titles]="['&nbsp;']" [form]="patientForm5" (formChange)="onFormChange($event)" [position]="1"
+  [submitted]="submitted">
 </app-input-form>
 
 <app-check-form [title_c]="'Do you use tobacco?'" [subtitles]="['Yes', 'No']" [form]="patientForm5"
-  (formChange)="onFormChange($event)" [values]="patientForm5" [position]="2"></app-check-form>
+  (formChange)="onFormChange($event)" [values]="patientForm5" [position]="2" [submitted]="submitted"></app-check-form>
 
-<app-input-form [titles]="['Frequency?']" [form]="patientForm5" (formChange)="onFormChange($event)" [position]="3">
+<app-input-form [titles]="['Frequency?']" [form]="patientForm5" (formChange)="onFormChange($event)" [position]="3"
+  [submitted]="submitted">
 </app-input-form>
-
 <br><br>
 
 <app-check-form [title_c]="'Do you use alcohol?'" [subtitles]="['Yes', 'No']" [form]="patientForm5"
-  (formChange)="onFormChange($event)" [values]="patientForm5" [position]="4"></app-check-form>
+  (formChange)="onFormChange($event)" [values]="patientForm5" [position]="4" [submitted]="submitted"></app-check-form>
 
-<app-input-form [titles]="['Frequency?']" [form]="patientForm5" (formChange)="onFormChange($event)" [position]="5">
+<app-input-form [titles]="['Frequency?']" [form]="patientForm5" (formChange)="onFormChange($event)" [position]="5"
+  [submitted]="submitted">
 </app-input-form>
 
-<app-next-button [router]="'/register-step-6'" [disable]="patientForm5.invalid"></app-next-button>
+<app-next-button [router]="'/register-step-6'" [disable]="!patientForm5.invalid" (valueChanged)="submitted = $event"
+  (click)="toggle()"></app-next-button>

@@ -1,7 +1,9 @@
 <app-header></app-header>
 
 <app-check-form [title_c]="titleCheckForm" [subtitles]="subtitlesCheckForm" [align_t]="true" [align_c]="1"
-  [form]="patientForm6" (formChange)="onFormChange($event)" [values]="patientForm6" [multi_c]="true">
+  [form]="patientForm6" (formChange)="onFormChange($event)" [values]="patientForm6" [multi_c]="true"
+  [submitted]="submitted">
 </app-check-form>
 
-<app-next-button [router]="'/register-step-7'" [disable]="patientForm6.invalid"></app-next-button>
+<app-next-button [router]="'/register-step-7'" [disable]="!patientForm6.invalid" (valueChanged)="submitted = $event"
+  (click)="toggle()"></app-next-button>

@@ -1,17 +1,17 @@
 <app-header></app-header>
 
 <app-input-form [titles]="titulos" [icons]="iconos" [types]="tipos" [placeholders]="marcadores" [form]="patientForm"
-  (formChange)="onFormChange($event)"></app-input-form>
+  (formChange)="onFormChange($event)" [submitted]="submitted"></app-input-form>
 
 <app-input-d-form [titles]="titulosD" [icons]="icono" [placeholders]="titulosD" [form]="patientForm"
-  (formChange)="onFormChange($event)" [position]="6"></app-input-d-form>
+  (formChange)="onFormChange($event)" [position]="6" [submitted]="submitted"></app-input-d-form>
 
 <app-check-form [title_c]="'Sex (Choose one)'" [subtitles]="subtitulos[0]" [form]="patientForm"
-  (formChange)="onFormChange($event)" [values]="patientForm" [position]="10">
+  (formChange)="onFormChange($event)" [values]="patientForm" [position]="10" [submitted]="submitted">
 </app-check-form>
 
 <app-check-form [title_c]="'Marital Status (Choose one)'" [subtitles]="subtitulos[1]" [form]="patientForm"
-  (formChange)="onFormChange($event)" [values]="patientForm" [position]="11">
+  (formChange)="onFormChange($event)" [values]="patientForm" [position]="11" [submitted]="submitted">
 </app-check-form>
 
-<app-next-button [router]="'/register-step-2'" [disable]="patientForm.invalid"></app-next-button>
+<app-next-button [router]="'/register-step-2'" [disable]="!patientForm.invalid" (valueChanged)="submitted = $event" (click)="toggle()"></app-next-button>

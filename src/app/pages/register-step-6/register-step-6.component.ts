@@ -20,6 +20,8 @@ export class RegisterStep6Component {
     'Unexplained change in weight/appetite', 'Problems/Pain from Walking'];
   patientForm6: FormGroup;
   storedFormValues: any;
+  submitted: any = '';
+
   constructor(private fb: FormBuilder) {
     this.patientForm6 = this.fb.group({
       six_month_condition: ['', Validators.required]
@@ -37,6 +39,11 @@ export class RegisterStep6Component {
       existingForms[5] = values;
       localStorage.setItem('patientForms', JSON.stringify(existingForms));
     });
+  }
+
+  toggle() {
+    this.submitted = true;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   onFormChange(form: FormGroup): void {

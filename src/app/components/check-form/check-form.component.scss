@@ -17,7 +17,14 @@ section {
 
 [title-container-c] {
   display: flex;
-  padding-left: 10px;
+  // padding-left: 10px;
+  align-items: flex-end;
+
+  small {
+    font-size: 20px;
+    color: red;
+    padding-right: 5px;
+  }
 
   h2 {
     margin-bottom: 3px;
@@ -75,10 +82,6 @@ section {
 
 [input-container-c]>span.only-child-row {
   grid-column: span 2;
-}
-
-.checked {
-  background-color: red;
 }
 
 

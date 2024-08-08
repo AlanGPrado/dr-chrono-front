@@ -21,12 +21,13 @@ export class CheckFormComponent {
   @Input() values: any = {};
   @Input() position: number = 0;
   @Input() multi_c: boolean = false;
+  @Input() submitted: any;
   @Output() formChange = new EventEmitter<FormGroup>();
   checkedIndex: number | null = null;
   checkedIndexes: number[] = [];
   formControlNames: string[] = [];
   conditionsArray: any[] = [];
-  arr: any[] = [];
+  key: any;
 
   ngOnInit(): void {
     this.initializeForm();
@@ -37,6 +38,8 @@ export class CheckFormComponent {
     this.values.valueChanges.subscribe(() => {
       this.formChange.emit(this.values);
     });
+
+    this.key = Object.keys(this.values.value);
   }
 
   isOnlyChildInRow(index: number): boolean {

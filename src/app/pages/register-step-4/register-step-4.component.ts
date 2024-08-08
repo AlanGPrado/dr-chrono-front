@@ -14,6 +14,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class RegisterStep4Component {
   titulos = ['Allergies', 'Medications', 'Hospitalizations/Surgeries (include dates)'];
   patientForm4: FormGroup;
+  submitted: any = '';
 
   constructor(private fb: FormBuilder) {
     this.patientForm4 = this.fb.group({
@@ -34,6 +35,11 @@ export class RegisterStep4Component {
       existingForms[3] = values;
       localStorage.setItem('patientForms', JSON.stringify(existingForms));
     });
+  }
+
+  toggle() {
+    this.submitted = true;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   onFormChange(form: FormGroup): void {

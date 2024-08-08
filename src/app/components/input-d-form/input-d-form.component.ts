@@ -19,9 +19,10 @@ export class InputDFormComponent {
   @Input() placeholders: string[] = [];
   @Input() form: FormGroup = this.fb.group({});
   @Input() position: number = 0;
+  @Input() submitted: any;
   @Output() formChange = new EventEmitter<FormGroup>();
   formControlNames: string[] = [];
-
+  key: any;
 
   ngOnInit(): void {
     this.formControlNames = Object.keys(this.form.value).map((value, i) => {
@@ -35,6 +36,8 @@ export class InputDFormComponent {
     this.form.valueChanges.subscribe(() => {
       this.formChange.emit(this.form);
     });
+
+    this.key = Object.keys(this.form.value);
   }
 
   onFormSubmit(): void {

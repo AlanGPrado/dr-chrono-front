@@ -1,20 +1,21 @@
 <app-header></app-header>
 
 <app-input-form [titles]="titulos" [types]="tipos" [XL]="[true, false]" [form]="patientForm3"
-  (formChange)="onFormChange($event)"></app-input-form>
+  (formChange)="onFormChange($event)" [submitted]="submitted"></app-input-form>
 
 <app-check-form [title_c]="'Have you seen another doctor for this condition?'" [subtitles]="['Yes', 'No']"
-  [form]="patientForm3" (formChange)="onFormChange($event)" [values]="patientForm3" [position]="2">
+  [form]="patientForm3" (formChange)="onFormChange($event)" [values]="patientForm3" [position]="2" [submitted]="submitted">
 </app-check-form>
 
 <app-input-form [titles]="titulos2" [types]="tipos" [form]="patientForm3" (formChange)="onFormChange($event)"
-  [position]="3"></app-input-form>
+  [position]="3" [submitted]="submitted"></app-input-form>
 
 <app-check-form [title_c]="'Have you had prior imaging for this condition? (X-ray, MRI, etc)'"
   [subtitles]="['Yes', 'No']" [form]="patientForm3" (formChange)="onFormChange($event)" [values]="patientForm3"
-  [position]="7"></app-check-form>
+  [position]="7" [submitted]="submitted"></app-check-form>
 
 <app-input-form [titles]="['If yes, Where?']" [types]="['text']" [form]="patientForm3"
-  (formChange)="onFormChange($event)" [position]="8"></app-input-form>
+  (formChange)="onFormChange($event)" [position]="8" [submitted]="submitted"></app-input-form>
 
-<app-next-button [router]="'/register-step-4'" [disable]="patientForm3.invalid"></app-next-button>
+<app-next-button [router]="'/register-step-4'" [disable]="!patientForm3.invalid" (valueChanged)="submitted = $event"
+  (click)="toggle()"></app-next-button>

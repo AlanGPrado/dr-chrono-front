@@ -28,21 +28,22 @@ export class RegisterStep7Component {
   subtitlesCheckForm7 = ['Menstrual irregularity', 'Breast pain/mass', 'Chronic/past disease (cancer, endometriosis, etc.)'];
   subtitlesCheckForm8 = ['Erectile dysfunction', 'Chronic/past disease (cancer/BPH, etc.)'];
   patientForm7: FormGroup;
+  submitted: any = '';
 
   constructor(private fb: FormBuilder) {
     this.patientForm7 = this.fb.group({
-      general_conditions: ['', Validators.required],
-      neurological_conditions: ['', Validators.required],
-      cardiovascular_pulmonary_conditions: ['', Validators.required],
-      gastrointestinal_conditions: ['', Validators.required],
-      genito_urinary_conditions: ['', Validators.required],
-      eent_conditions: ['', Validators.required],
-      women_conditions: ['', Validators.required],
-      other_women_conditions: ['', Validators.required],
-      pregnant_condition: ['', Validators.required],
-      last_menstrual_period: ['', Validators.required],
-      men_conditions: ['', Validators.required],
-      other_men_conditions: ['', Validators.required],
+      general_conditions: [''],
+      neurological_conditions: [''],
+      cardiovascular_pulmonary_conditions: [''],
+      gastrointestinal_conditions: [''],
+      genito_urinary_conditions: [''],
+      eent_conditions: [''],
+      women_conditions: [''],
+      other_women_conditions: [''],
+      pregnant_condition: [''],
+      last_menstrual_period: [''],
+      men_conditions: [''],
+      other_men_conditions: [''],
     });
 
     const storedForms = JSON.parse(localStorage.getItem('patientForms') || '[]');
@@ -58,6 +59,12 @@ export class RegisterStep7Component {
       localStorage.setItem('patientForms', JSON.stringify(existingForms));
     });
   }
+
+  toggle() {
+    this.submitted = true;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
   onFormChange(form: FormGroup): void {
     console.log('Form data received from child:', form.value);
   }

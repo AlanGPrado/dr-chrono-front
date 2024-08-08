@@ -24,7 +24,14 @@ section {
 
 [title-container] {
   display: flex;
-  padding-left: 10px;
+  // padding-left: 10px;
+  align-items: flex-end;
+
+  small {
+    font-size: 20px;
+    color: red;
+    padding-right: 5px;
+  }
 
   h2 {
     margin-bottom: 3px;

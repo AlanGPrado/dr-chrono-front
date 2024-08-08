@@ -3,6 +3,10 @@
     <div class="child-container">
       <div *ngFor="let title of titles; let i = index">
         <span title-container>
+          <small>
+            <ng-container *ngIf="form.get(key[i + position])?.invalid && submitted; else nonInvalid">*</ng-container>
+            <ng-template #nonInvalid>&#160;&#160;</ng-template>
+          </small>
           <h2>{{title}}</h2>
         </span>
         <form [formGroup]="form" input-container>
