@@ -25,7 +25,7 @@ export class RegisterStep4Component {
 
     const storedForms = JSON.parse(localStorage.getItem('patientForms') || '[]');
     if (storedForms.length > 3 && storedForms[3]) {
-      this.patientForm4.setValue(storedForms[3]);
+      this.patientForm4.patchValue(storedForms[3]);
     }
   }
 

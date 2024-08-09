@@ -40,6 +40,13 @@ export class CheckFormComponent {
     });
 
     this.key = Object.keys(this.values.value);
+
+    if (Array.isArray(this.values.value[Object.keys(this.values.value)[this.position]])) {
+      const matchingIndexes = this.values.value[Object.keys(this.values.value)[this.position]]
+        .map((value: any) => this.subtitles.indexOf(value))
+        .filter((index: number) => index !== -1);
+      this.checkedIndexes.push(...matchingIndexes);
+    }
   }
 
   isOnlyChildInRow(index: number): boolean {
@@ -55,6 +62,11 @@ export class CheckFormComponent {
       }
     }
     else {
+      if (this.values.value[Object.keys(this.values.value)[this.position]].length > 0) {
+        let array = [...new Set(this.values.value[Object.keys(this.values.value)[this.position]])];
+        const filteredArray = array.filter((obj: any) => Object.keys(obj).length !== 0);
+        this.conditionsArray = filteredArray;
+      }
       if (this.checkedIndexes.indexOf(index) === -1) {
         this.checkedIndexes.push(index);
         this.conditionsArray.push(this.subtitles[index]);

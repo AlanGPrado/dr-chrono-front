@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { AfterContentInit, ChangeDetectorRef, Component } from '@angular/core';
 import { HeaderComponent } from 'src/app/components/header/header.component';
 import { CheckFormComponent } from 'src/app/components/check-form/check-form.component';
 import { InputFormComponent } from 'src/app/components/input-form/input-form.component';
@@ -31,7 +31,7 @@ export class RegisterStep5Component {
 
     const storedForms = JSON.parse(localStorage.getItem('patientForms') || '[]');
     if (storedForms.length > 4 && storedForms[4]) {
-      this.patientForm5.setValue(storedForms[4]);
+      this.patientForm5.patchValue(storedForms[4]);
     }
   }
 
@@ -66,7 +66,7 @@ export class RegisterStep5Component {
 
   setupValidators(value: string, pos1: number, pos2: number) {
     const options = ['Other', 'Yes'];
-    if (!options.some(option => this.patientForm5.get(value)?.value.includes(option))) {
+    if (options.some(option => this.patientForm5.get(value)?.value.includes(option)) === false) {
       Object.keys(this.patientForm5.value).slice(pos1, pos2).forEach(controlName => {
         this.patientForm5.get(controlName)?.clearValidators();
         this.patientForm5.get(controlName)?.updateValueAndValidity({ onlySelf: true });
@@ -77,11 +77,11 @@ export class RegisterStep5Component {
         this.patientForm5.get(controlName)?.updateValueAndValidity({ onlySelf: true });
       });
     }
-
+    this.patientForm5.updateValueAndValidity({ onlySelf: true });
     this.cdr.detectChanges();
   }
 
   onFormChange(form: FormGroup): void {
-    console.log('Form data received from child:', form.value);
+    // console.log('Form data received from child:', form.value);
   }
 }

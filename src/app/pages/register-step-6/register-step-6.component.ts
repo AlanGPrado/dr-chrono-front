@@ -29,7 +29,7 @@ export class RegisterStep6Component {
 
     const storedForms = JSON.parse(localStorage.getItem('patientForms') || '[]');
     if (storedForms.length > 5  && storedForms[5]) {
-      this.patientForm6.setValue(storedForms[5]);
+      this.patientForm6.patchValue(storedForms[5]);
     }
   }
 
